@@ -1,0 +1,63 @@
+mutation{
+  addClient(name: "Hulk", email: "hulk@gmail.com", phone:"34343434") {
+    id,name,email,phone
+  }
+}
+
+mutation{
+  deleteClient(id: "630a7789bcff2cecc9123624") {
+    name,email,phone
+  }
+}
+
+{
+  clients {
+    id, name, email, phone
+  }
+}
+
+
+// Create Project 
+mutation {
+  addProject(name: "Mobile App", description: "This is the description", status: new, clientId: "630a7647963bf31ab52caa60") {
+    name,id
+  }
+}
+
+// Create and return user
+mutation {
+  addProject(name: "E-commerce", description: "This is the description", status: new, clientId: "630a7647963bf31ab52caa60") {
+    name,id,
+    client {
+      name,
+      id,email
+    }
+  }
+}
+
+// List Projects
+{
+  projects {
+    name
+    description
+    status
+    client {
+      name
+      email
+    }
+  }
+}
+
+// Delete project
+mutation {
+  deleteProject(id: "630a7d6abc699b4ce3111f70") {
+    name,description
+  }
+}
+
+// Update project
+mutation {
+  updateProject(id: "630a7cacbc699b4ce3111f64", name: "TWIS Mobile App", status: completed) {
+    name, status
+  }
+}
