@@ -81,7 +81,7 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: {
-    // Add client
+    //* Add client
     addClient: {
       type: ClientType,
       args: {
@@ -93,7 +93,7 @@ const mutation = new GraphQLObjectType({
         const client = new Client({
           name: args.name,
           email: args.email,
-          phone: args.name,
+          phone: args.phone,
         });
 
         return client.save();
